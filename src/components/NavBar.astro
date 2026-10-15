@@ -13,7 +13,7 @@ import logoImage from "../assets/images/logo-querreque.png";
         class="logo-img"
       />
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li>
         <a href="#menu" class="nav-link" data-section="menu">
           {" "}
@@ -59,6 +59,7 @@ import logoImage from "../assets/images/logo-querreque.png";
   }
 
   .nav-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,7 +72,8 @@ import logoImage from "../assets/images/logo-querreque.png";
   }
 
   .navbar.scrolled .nav-container {
-    padding: 14px clamp(28px, 3vw, 44px);
+    justify-content: center;
+    padding: 12px clamp(28px, 3vw, 44px);
     border-radius: 100px;
     background: rgba(10, 10, 10, 0.65);
     backdrop-filter: blur(24px);
@@ -91,10 +93,11 @@ import logoImage from "../assets/images/logo-querreque.png";
       margin 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
     max-width: 200px;
+    flex-shrink: 0;
   }
 
   .logo-img {
-    height: 40px;
+    height: 150px;
     width: auto;
     object-fit: contain;
   }
@@ -105,6 +108,7 @@ import logoImage from "../assets/images/logo-querreque.png";
     margin-right: 0;
     pointer-events: none;
   }
+
   .nav-links {
     display: flex;
     gap: 2.5rem;
@@ -141,4 +145,73 @@ import logoImage from "../assets/images/logo-querreque.png";
     color: var(--text);
     font-weight: 500;
   }
+
+  @media (max-width: 900px) {
+    .navbar {
+      padding: 10px clamp(10px, 3vw, 20px);
+    }
+
+    .navbar.scrolled {
+      top: 10px;
+    }
+
+    .nav-container {
+      justify-content: space-between;
+      padding: 0 clamp(8px, 2vw, 16px);
+    }
+
+    .navbar.scrolled .nav-container {
+      padding: 10px clamp(16px, 4vw, 28px);
+      border-radius: 60px;
+    }
+
+    .logo-img {
+      height: clamp(64px, 14vw, 96px);
+    }
+
+    .nav-links,
+    .navbar.scrolled .nav-links {
+      gap: clamp(0.75rem, 3vw, 1.5rem);
+    }
+
+    .nav-link,
+    .navbar.scrolled .nav-link {
+      font-size: clamp(0.7rem, 2.8vw, 0.85rem);
+    }
+  }
+
+  @media (max-width: 360px) {
+    .nav-links,
+    .navbar.scrolled .nav-links {
+      gap: 0.6rem;
+    }
+
+    .nav-link,
+    .navbar.scrolled .nav-link {
+      font-size: 0.7rem;
+      letter-spacing: 0;
+    }
+  }
 </style>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  let ticking = false;
+
+  const updateNavbar = () => {
+    navbar?.classList.toggle("scrolled", window.scrollY > 40);
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateNavbar);
+    },
+    { passive: true },
+  );
+
+  updateNavbar();
+</script>

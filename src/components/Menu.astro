@@ -173,7 +173,7 @@ const menuSections = [
   .menu-section {
     background: #0f0b0a;
     color: #ffffff;
-    padding: 80px 20px;
+    padding: clamp(60px, 10vw, 80px) clamp(16px, 5vw, 20px);
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -190,17 +190,18 @@ const menuSections = [
     font-weight: 400;
     font-style: normal;
     text-align: center;
+    font-size: clamp(2.5rem, 8vw, 4rem);
   }
 
   .category-block {
-    margin-bottom: 60px;
+    margin-bottom: clamp(40px, 8vw, 60px);
   }
 
   .category-title {
     font-family: "Rubik", sans-serif;
     font-weight: 900;
     font-style: normal;
-    font-size: xx-large;
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
     border-bottom: 2px solid var(--bg);
     padding-bottom: 10px;
     margin-bottom: 25px;
@@ -211,15 +212,15 @@ const menuSections = [
 
   .items-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: clamp(14px, 2vw, 20px);
   }
 
   .menu-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 18px;
+    padding: clamp(14px, 3vw, 18px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -239,14 +240,16 @@ const menuSections = [
 
   .card-content {
     flex: 1;
+    min-width: 0;
   }
 
   .item-name {
-    font-size: 1.4rem;
+    font-size: clamp(1.15rem, 3vw, 1.4rem);
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 6px 0;
     letter-spacing: 0.5px;
+    overflow-wrap: break-word;
   }
 
   .item-desc {
@@ -254,28 +257,33 @@ const menuSections = [
     color: #b0a8a0;
     margin: 0;
     line-height: 1.4;
+    overflow-wrap: break-word;
   }
 
   .price-badge {
     background: var(--bg);
     color: #ffffff;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     padding: 6px 12px;
     border-radius: 8px;
     white-space: nowrap;
+    flex-shrink: 0;
     box-shadow: 0 4px 10px rgba(255, 106, 0, 0.3);
   }
 
   @media (max-width: 600px) {
-    .menu-title {
-      font-size: 2.2rem;
+    .menu-card {
+      flex-wrap: wrap;
+      align-items: center;
     }
-    .category-title {
-      font-size: 1.6rem;
+
+    .card-content {
+      flex: 1 1 100%;
     }
-    .items-grid {
-      grid-template-columns: 1fr;
+
+    .price-badge {
+      margin-top: 4px;
     }
   }
 </style>

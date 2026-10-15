@@ -21,7 +21,8 @@
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: clamp(90px, 14vh, 130px);
 }
 
 body {
@@ -62,10 +63,9 @@ ol {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 60px);
+  padding: 0 clamp(16px, 5vw, 60px);
 }
 
-/* Tipografía protagonista */
 h1 {
   font-family: "Monofett", monospace;
 }
@@ -89,7 +89,6 @@ p {
   line-height: 1.7;
 }
 
-/* Animaciones base para scroll */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -142,7 +141,6 @@ p {
   transform: scale(1);
 }
 
-/* Stagger delays */
 .delay-1 {
   transition-delay: 0.1s;
 }
@@ -159,7 +157,6 @@ p {
   transition-delay: 0.5s;
 }
 
-/* Typewriter cursor */
 .typewriter-cursor {
   display: inline-block;
   width: 3px;
@@ -219,5 +216,26 @@ p {
 @media (max-width: 768px) {
   :root {
     --section-padding: clamp(60px, 10vh, 100px);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: clamp(48px, 8vh, 72px);
+    --container-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

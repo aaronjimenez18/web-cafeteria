@@ -5,7 +5,7 @@ import restauranteImage from "../assets/images/principal.webp";
 <section class="hero section" id="hero">
   <div class="container hero-grid">
     <div class="hero-content">
-      <h1 class="hero-name reveal delay-1">Bienvenido!</h1>
+      <h1 class="hero-name reveal delay-1">Bienvenido</h1>
     </div>
 
     <div class="hero-image-wrapper reveal-right delay-2">
@@ -29,10 +29,9 @@ import restauranteImage from "../assets/images/principal.webp";
 </section>
 
 <style>
-  /* Bloque de sección full-width con fondo rojo propio */
-
   .hero {
     min-height: 100vh;
+    min-height: 100svh;
 
     display: flex;
 
@@ -45,6 +44,9 @@ import restauranteImage from "../assets/images/principal.webp";
     width: 100%;
 
     background-color: var(--bg);
+
+    padding-top: calc(var(--section-padding) + clamp(50px, 10vh, 110px));
+    padding-bottom: var(--section-padding);
   }
 
   .hero-grid {
@@ -52,7 +54,7 @@ import restauranteImage from "../assets/images/principal.webp";
 
     grid-template-columns: 1fr 1.6fr;
 
-    gap: 3rem;
+    gap: clamp(2rem, 5vw, 3rem);
 
     align-items: center;
   }
@@ -64,7 +66,7 @@ import restauranteImage from "../assets/images/principal.webp";
   }
 
   .hero-name {
-    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-size: clamp(2.75rem, 9vw, 5.5rem);
 
     font-weight: 800;
 
@@ -140,7 +142,7 @@ import restauranteImage from "../assets/images/principal.webp";
 
       text-align: center;
 
-      gap: 3rem;
+      gap: 2.5rem;
     }
 
     .hero-content {
@@ -153,6 +155,26 @@ import restauranteImage from "../assets/images/principal.webp";
 
     .hero-image-container {
       max-width: 520px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero-grid {
+      gap: 1.75rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 12vw, 3.5rem);
+
+      margin-bottom: 1rem;
+    }
+
+    .hero-image {
+      border-radius: 16px;
+    }
+
+    .hero-image-glow {
+      inset: -16px;
     }
   }
 </style>

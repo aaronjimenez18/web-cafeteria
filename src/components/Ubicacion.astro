@@ -1,0 +1,53 @@
+<section id="ubicacion" class="ubicacion-section">
+  <div class="ubicacion-container">
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.563580335361!2d-99.03747399999997!3d19.257842699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0367036a64b7%3A0x3a0207cf7cee5e20!2sEl%20Querreque%20Hamburguesas%20y%20Caf%C3%A9!5e0!3m2!1ses-419!2smx!4v1792070723804!5m2!1ses-419!2smx"
+        title="Ubicación El Querreque"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ubicacion-section {
+    background: var(--bg);
+    padding: var(--section-padding) 0;
+  }
+
+  .ubicacion-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 clamp(16px, 5vw, 60px);
+  }
+
+  .map-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: clamp(12px, 2vw, 24px);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .map-frame {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
