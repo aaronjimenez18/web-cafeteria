@@ -1,0 +1,121 @@
+---
+---
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo"> El Querreque</a>
+        <ul class="nav-links">
+            <li>
+                <a href="#menu" class="nav-link" data-section="menu"> Menu </a>
+            </li>
+
+            <li>
+                <a href="#ubicacion" class="nav-link" data-section="ubicacion"> Ubicación </a>
+            </li>
+
+            <li>
+                <a href="#pedir-aqui" class="nav-link" data-section="pedir-aqui"> Pedir Aqui </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 100%;
+    max-width: var(--container-width);
+    padding: 20px clamp(20px, 5vw, 60px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .navbar.scrolled {
+    top: 20px;
+    width: auto;
+    max-width: none;
+    padding: 0;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(24px, 3vw, 40px);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid transparent;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .navbar.scrolled .nav-container {
+    padding: 14px clamp(28px, 3vw, 44px);
+    border-radius: 100px;
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  .nav-logo {
+    font-family: "Monofett", monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    transition:
+      opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      margin 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .navbar.scrolled .nav-logo {
+    opacity: 0;
+    width: 0;
+    margin-right: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    padding: 0;
+    margin: 0;
+    transition: gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .navbar.scrolled .nav-links {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text);
+    transition: color 0.3s ease, font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .navbar.scrolled .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .nav-link:hover {
+    color: var(--text-secondary);
+  }
+
+  .nav-link.active {
+    color: var(--text);
+    font-weight: 500;
+  }
+</style>
+
