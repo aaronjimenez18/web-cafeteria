@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
 
 *,
 *::before,
@@ -68,11 +67,7 @@ ol {
 
 /* Tipografía protagonista */
 h1 {
-  font-family: "Unbounded", sans-serif;
-  font-size: clamp(3rem, 8vw, 7rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-family: "Monofett", monospace;
 }
 
 h2 {

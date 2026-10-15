@@ -1,271 +1,186 @@
 ---
-
 import restauranteImage from "../assets/images/principal.webp";
-
 ---
 
 <section class="hero section" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <h1 class="hero-name reveal delay-1">Bienvenido!</h1>
+    </div>
 
-<div class="container hero-grid">
+    <div class="hero-image-wrapper reveal-right delay-2">
+      <div class="hero-image-container float">
+        <img
+          src={restauranteImage.src}
 
-<div class="hero-content">
+          alt="Restaurante"
 
-<h1 class="hero-name reveal delay-1"> Bienvenido! </h1>
+          class="hero-image"
 
-</div>
+          width={restauranteImage.width}
 
-<div class="hero-image-wrapper reveal-right delay-2">
+          height={restauranteImage.height}
+        />
 
-<div class="hero-image-container float">
-
-<img
-
-src={restauranteImage.src}
-
-alt="Restaurante"
-
-class="hero-image"
-
-width={restauranteImage.width}
-
-height={restauranteImage.height}
-
-/>
-
-<div class="hero-image-glow"></div>
-
-</div>
-
-</div>
-
-</div>
-
+        <div class="hero-image-glow"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
 <style>
+  /* Bloque de sección full-width con fondo rojo propio */
 
-/* Bloque de sección full-width con fondo rojo propio */
+  .hero {
+    min-height: 100vh;
 
-.hero {
+    display: flex;
 
-min-height: 100vh;
+    align-items: center;
 
-display: flex;
+    position: relative;
 
-align-items: center;
+    overflow: hidden;
 
-position: relative;
+    width: 100%;
 
-overflow: hidden;
+    background-color: var(--bg);
+  }
 
-width: 100%;
+  .hero-grid {
+    display: grid;
 
-background-color: var(--bg);
+    grid-template-columns: 1fr 1.6fr;
 
-}
+    gap: 3rem;
 
+    align-items: center;
+  }
 
+  .hero-content {
+    position: relative;
 
-.hero-grid {
+    z-index: 2;
+  }
 
-display: grid;
+  .hero-name {
+    font-size: clamp(2rem, 4vw, 3.25rem);
 
-grid-template-columns: 1fr 1.6fr;
+    font-weight: 800;
 
-gap: 3rem;
+    line-height: 1.05;
 
-align-items: center;
+    letter-spacing: -0.04em;
 
-}
+    margin-bottom: 1.5rem;
 
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
 
+    -webkit-background-clip: text;
 
-.hero-content {
+    -webkit-text-fill-color: transparent;
 
-position: relative;
+    background-clip: text;
+  }
 
-z-index: 2;
+  .hero-image-wrapper {
+    position: relative;
 
-}
+    display: flex;
 
+    justify-content: center;
 
+    align-items: center;
+  }
 
-.hero-name {
+  .hero-image-container {
+    position: relative;
 
-font-size: clamp(2rem, 4vw, 3.25rem);
+    width: 100%;
 
-font-weight: 800;
+    max-width: 860px;
+  }
 
-line-height: 1.05;
+  .hero-image {
+    width: 100%;
 
-letter-spacing: -0.04em;
+    height: auto;
 
-margin-bottom: 1.5rem;
+    border-radius: 24px;
 
-background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    position: relative;
 
--webkit-background-clip: text;
+    z-index: 1;
 
--webkit-text-fill-color: transparent;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  }
 
-background-clip: text;
+  .hero-image-glow {
+    position: absolute;
 
-}
+    inset: -30px;
 
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.06) 0%,
 
+      transparent 70%
+    );
 
-.hero-image-wrapper {
+    z-index: 0;
 
-position: relative;
+    border-radius: 50%;
 
-display: flex;
+    filter: blur(50px);
+  }
 
-justify-content: center;
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
 
-align-items: center;
+      text-align: center;
 
-}
+      gap: 3rem;
+    }
 
+    .hero-content {
+      order: 2;
+    }
 
+    .hero-image-wrapper {
+      order: 1;
+    }
 
-.hero-image-container {
-
-position: relative;
-
-width: 100%;
-
-max-width: 860px;
-
-}
-
-
-
-.hero-image {
-
-width: 100%;
-
-height: auto;
-
-border-radius: 24px;
-
-position: relative;
-
-z-index: 1;
-
-box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-
-}
-
-
-
-.hero-image-glow {
-
-position: absolute;
-
-inset: -30px;
-
-background: radial-gradient(
-
-circle,
-
-rgba(255, 255, 255, 0.06) 0%,
-
-transparent 70%
-
-);
-
-z-index: 0;
-
-border-radius: 50%;
-
-filter: blur(50px);
-
-}
-
-
-
-@media (max-width: 900px) {
-
-.hero-grid {
-
-grid-template-columns: 1fr;
-
-text-align: center;
-
-gap: 3rem;
-
-}
-
-
-
-.hero-content {
-
-order: 2;
-
-}
-
-
-
-.hero-image-wrapper {
-
-order: 1;
-
-}
-
-
-
-.hero-image-container {
-
-max-width: 520px;
-
-}
-
-}
-
+    .hero-image-container {
+      max-width: 520px;
+    }
+  }
 </style>
 
-
-
 <script>
+  // Activa las animaciones reveal del hero cuando entran en pantalla
 
-// Activa las animaciones reveal del hero cuando entran en pantalla
-
-let revealEls = document.querySelectorAll(".hero .reveal, .hero .reveal-left, .hero .reveal-right, .hero .reveal-scale");
-
-
-
-if ("IntersectionObserver" in window) {
-
-  let observer = new IntersectionObserver(
-
-    (entries) => {
-
-      entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add("visible");
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    },
-
-    { threshold: 0.2 }
-
+  let revealEls = document.querySelectorAll(
+    ".hero .reveal, .hero .reveal-left, .hero .reveal-right, .hero .reveal-scale",
   );
 
-  revealEls.forEach((el) => observer.observe(el));
+  if ("IntersectionObserver" in window) {
+    let observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
 
-} else {
+            observer.unobserve(entry.target);
+          }
+        });
+      },
 
-  revealEls.forEach((el) => el.classList.add("visible"));
+      { threshold: 0.2 },
+    );
 
-}
-
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("visible"));
+  }
 </script>

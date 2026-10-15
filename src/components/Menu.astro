@@ -1,0 +1,281 @@
+---
+const menuSections = [
+  {
+    category: "Hamburguesas",
+    items: [
+      {
+        name: "Sencilla",
+        description: "Queso Amarillo, Queso Oaxaca",
+        price: "$35",
+      },
+      {
+        name: "Hawaiana",
+        description: "Queso Amarillo, Queso Oaxaca, Jamón, Piña, Tocino",
+        price: "$45",
+      },
+      {
+        name: "Especial",
+        description: "Queso Amarillo, Queso Manchego, Jamón, Champiñones",
+        price: "$55",
+      },
+      {
+        name: "Ratonera",
+        description:
+          "Queso Amarillo, Extra Queso Oaxaca, Jamón, Queso Manchego, Salchicha",
+        price: "$65",
+      },
+      {
+        name: "Doble Carne",
+        description: "Doble deliciosa Carne, Queso Amarillo, Queso Oaxaca",
+        price: "$55",
+      },
+      {
+        name: "Doble Hawaiana",
+        description:
+          "Doble Carne, Queso Amarillo, Queso Oaxaca, Jamón, Piña, Tocino",
+        price: "$75",
+      },
+      {
+        name: "Vaquera",
+        description: "Queso Manchego, Exquisitos Aros de Cebolla, Salsa BBQ",
+        price: "$60",
+      },
+      {
+        name: "Suprema",
+        description:
+          "Queso Amarillo, Queso Manchego, Queso Oaxaca, Jamón, Piña, Tocino",
+        price: "$55",
+      },
+      {
+        name: "4 Quesos",
+        description:
+          "Queso Manchego, Queso Oaxaca, Queso Amarillo, Queso Philadelphia",
+        price: "$60",
+      },
+      {
+        name: "Pollo",
+        description:
+          "Pechuga de Pollo empanizada, Queso Amarillo, Queso Oaxaca",
+        price: "$55",
+      },
+    ],
+  },
+  {
+    category: "Hot Dogs",
+
+    items: [
+      {
+        name: "Sencillo",
+        description: "Deliciosa Salchicha de Pavo",
+        price: "$15",
+      },
+      {
+        name: "Queso ó Tocino",
+        description: "Acompañado de delicioso queso ó tocino",
+        price: "$20",
+      },
+      {
+        name: "Combinado",
+        description: "Con delicioso queso fundido y tocino",
+        price: "$25",
+      },
+      {
+        name: "Del Jefe",
+        description: "Queso Oaxaca, Piña Asada y Tocino",
+        price: "$30",
+      },
+      {
+        name: "Bull-Dog",
+        description: "Deliciosas Salchichas de Res",
+        price: "$40",
+      },
+    ],
+  },
+  {
+    category: "Snacks",
+    items: [
+      {
+        name: "Papas a la Francesa",
+        description: "Crujientes Papas Fritas Acompañadas de aderezos",
+        price: "$35",
+      },
+      {
+        name: "Alitas Picantes",
+        description:
+          "Deliciosas Alitas de Pollo con salsa picante acompañadas de papas",
+        price: "$55",
+      },
+      {
+        name: "Deditos de Queso",
+        description:
+          "Deliciosas barritas de queso Mozzarella acompañadas de aderezo Mil Islas",
+        price: "$40",
+      },
+      {
+        name: "Nuggets de Pollo",
+        description: "Deliciosa salchicha de pavo",
+        price: "$45",
+      },
+      {
+        name: "Aros de Cebolla",
+        description: "Aros dulce-sazonados y acompañados con salsa búfalo",
+        price: "$40",
+      },
+      {
+        name: "Nachos",
+        description:
+          "Crujientes tortillas de maíz con queso cheddar y chiles nachos",
+        price: "$35",
+      },
+      {
+        name: "Banderilla Salchicha",
+        description: "Deliciosa salchicha cubierta de masa crujiente",
+        price: "$25",
+      },
+      {
+        name: "Sincronizada",
+        description:
+          "Tortilla de harina con queso oaxaca, amarillo y jamón de pavo",
+        price: "$25",
+      },
+    ],
+  },
+];
+---
+
+<section id="menu" class="menu-section">
+  <div class="menu-container">
+    <h2 class="menu-title">Menú</h2>
+
+    {menuSections.map((section) => (
+      <div class="category-block">
+        <h3 class="category-title">{section.category}</h3>
+
+        <div class="items-grid">
+          {section.items.map((item) => (
+            <div class="menu-card">
+              <div class="card-content">
+                <h4 class="item-name">{item.name}</h4>
+                <p class="item-desc">{item.description}</p>
+              </div>
+              <div class="price-badge">{item.price}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Monofett&family=Rubik:wght@500&display=swap");
+  .menu-section {
+    background: #0f0b0a;
+    color: #ffffff;
+    padding: 80px 20px;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .menu-title {
+    font-family: "Monofett", monospace;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+  }
+
+  .category-block {
+    margin-bottom: 60px;
+  }
+
+  .category-title {
+    font-family: "Rubik", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: xx-large;
+    border-bottom: 2px solid var(--bg);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .menu-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--bg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .item-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .item-desc {
+    font-size: 0.85rem;
+    color: #b0a8a0;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .price-badge {
+    background: var(--bg);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.3);
+  }
+
+  @media (max-width: 600px) {
+    .menu-title {
+      font-size: 2.2rem;
+    }
+    .category-title {
+      font-size: 1.6rem;
+    }
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
